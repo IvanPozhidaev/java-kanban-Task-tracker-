@@ -1,12 +1,15 @@
+package ManagerModules;
+
 import java.util.ArrayList;
 import java.util.HashMap;
+import StatusModules.Status;
+import TaskModules.EpicTask;
+import TaskModules.Subtask;
+import TaskModules.Task;
 
 public class TaskManager {
     int id = 1;
-    Task task;
-    EpicTask epicTask;
-    Subtask subtask;
-    HashMap<Integer, Task> taskMap = new HashMap<>();
+    public HashMap<Integer, Task> taskMap = new HashMap<>();
     HashMap<Integer, EpicTask> epicTaskMap = new HashMap<>();
     HashMap<Integer, Subtask> subtaskMap = new HashMap<>();
 
@@ -14,11 +17,6 @@ public class TaskManager {
     public int idUniqueGenerator() {
         return id++;
     }
-
-    /*В ТЗ указано, что не должно существовать каких-то отдельных методов для обновления статуса,
-    * однако я не смог ничего этакого придумать. Потому написал метод, который занимается обновлением статуса
-    * эпика, и который можно универсально применить и к подазадчам тоже, поскольку по ТЗ дано, что они связаны.
-    * Я надеюсь, это будет приемлемо и пройдет проверку, ибо мои идеи по реализации иссякли) */
 
     // Метод для обновления статуса эпика
     public void updateEpicStatus(EpicTask epicTask) {

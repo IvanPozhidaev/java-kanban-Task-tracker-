@@ -1,6 +1,8 @@
+package TaskModules;
+
 import java.util.Objects;
 
-public class Subtask extends Task{
+public class Subtask extends Task {
     int epicTaskId;
 
     public Subtask(String taskName, String taskDescription, int id, String taskStatus, int epicTaskId) {
@@ -16,7 +18,6 @@ public class Subtask extends Task{
         this.epicTaskId = epicTaskId;
     }
 
-    @Override
     public boolean equals(Object obj) {
         if (this == obj) return true;
         if (obj == null || getClass() != obj.getClass()) return false;
@@ -25,12 +26,10 @@ public class Subtask extends Task{
         return epicTaskId == subTask.epicTaskId;
     }
 
-    @Override
     public int hashCode() {
         return Objects.hash(super.hashCode(), epicTaskId);
     }
 
-    @Override
     public String toString() {
         return "SubTask{" +
                 "epicTaskId=" + epicTaskId +

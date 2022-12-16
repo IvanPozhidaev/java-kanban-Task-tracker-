@@ -1,3 +1,5 @@
+package TaskModules;
+
 import java.util.Objects;
 
 public class Task {
@@ -30,7 +32,7 @@ public class Task {
 
     @Override
     public String toString() {
-        return "Task{" +
+        return "TaskModules.Task{" +
                 "taskName='" + taskName + '\'' +
                 ", taskDescription='" + taskDescription + '\'' +
                 ", id=" + id +

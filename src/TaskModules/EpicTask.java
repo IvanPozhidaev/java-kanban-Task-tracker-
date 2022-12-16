@@ -1,8 +1,10 @@
+package TaskModules;
+
 import java.util.ArrayList;
 import java.util.Objects;
 
 public class EpicTask extends Task {
-    protected ArrayList<Integer> subTasksIds;
+    public ArrayList<Integer> subTasksIds;
 
     public EpicTask(String taskName, String taskDescription, int id, String taskStatus) {
         super(taskName, taskDescription, id, taskStatus);
@@ -21,7 +23,6 @@ public class EpicTask extends Task {
         this.subTasksIds = subTasksIds;
     }
 
-    @Override
     public boolean equals(Object obj) {
         if (this == obj) return true;
         if (obj == null || getClass() != obj.getClass()) return false;
@@ -30,14 +31,12 @@ public class EpicTask extends Task {
         return Objects.equals(subTasksIds, epicTask.subTasksIds);
     }
 
-    @Override
     public int hashCode() {
         return Objects.hash(super.hashCode(), subTasksIds);
     }
 
-    @Override
     public String toString() {
-        return "EpicTask{" +
+        return "TaskModules.EpicTask{" +
                 "subTasks=" + subTasksIds +
                 ", taskName='" + taskName + '\'' +
                 ", taskDescription='" + taskDescription + '\'' +

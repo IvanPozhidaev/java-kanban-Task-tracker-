@@ -1,3 +1,9 @@
+import ManagerModules.TaskManager;
+import StatusModules.Status;
+import TaskModules.EpicTask;
+import TaskModules.Subtask;
+import TaskModules.Task;
+
 public class Main {
 
     public static void main(String[] args) {
