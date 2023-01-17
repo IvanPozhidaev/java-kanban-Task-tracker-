@@ -11,10 +11,10 @@ public interface TaskManager {
     void updateEpicStatus(EpicTask epicTask);
 
     // методы на получение всех задач\эпиков\подзадач (сначала написал с void, в итоге переделаны на возвращение)
-    ArrayList<Task> getListTasks();
-    ArrayList<Subtask> getListSubtasks();
+    List<Task> getListTasks();
+    List<Subtask> getListSubtasks();
 
-    ArrayList<EpicTask> getListEpicTasks();
+    List<EpicTask> getListEpicTasks();
 
     // методы на удаление всех задач\эпиков\подзадач
     void deleteAllTasks();

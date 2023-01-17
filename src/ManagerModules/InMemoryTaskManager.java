@@ -55,35 +55,20 @@ public class InMemoryTaskManager implements TaskManager {
         }
     }
 
-    // методы на получение всех задач\эпиков\подзадач
+    // методы на получение всех задач\эпиков\подзадач обновлены на более лаконичную запись
     @Override
-    public ArrayList<Task> getListTasks() {
-        ArrayList<Task> listTasks = new ArrayList<>();
-        for (int key : taskMap.keySet()) {
-            Task task = taskMap.get(key);
-            listTasks.add(task);
-        }
-        return listTasks;
+    public List<Task> getListTasks() {
+        return new ArrayList<>(taskMap.values());
     }
 
     @Override
-    public ArrayList<Subtask> getListSubtasks() {
-        ArrayList<Subtask> listSubtasks = new ArrayList<>();
-        for (int key : subtaskMap.keySet()) {
-            Subtask subtask = subtaskMap.get(key);
-            listSubtasks.add(subtask);
-        }
-        return listSubtasks;
+    public List<Subtask> getListSubtasks() {
+        return new ArrayList<>(subtaskMap.values());
     }
 
     @Override
-    public ArrayList<EpicTask> getListEpicTasks() {
-        ArrayList<EpicTask> listEpicTasks = new ArrayList<>();
-        for (int key : epicTaskMap.keySet()) {
-            EpicTask epicTask = epicTaskMap.get(key);
-            listEpicTasks.add(epicTask);
-        }
-        return listEpicTasks;
+    public List<EpicTask> getListEpicTasks() {
+        return new ArrayList<>(epicTaskMap.values());
     }
 
     // методы на удаление всех задач\эпиков\подзадач
@@ -138,6 +123,7 @@ public class InMemoryTaskManager implements TaskManager {
     @Override
     public void deleteTaskById(int id) {
         taskMap.remove(id);
+        historyManager.remove(id);
     }
 
     //здесь стираю и подзадачи тоже, потому что по условию ТЗ субтаски не существуют без эпиков
@@ -148,11 +134,13 @@ public class InMemoryTaskManager implements TaskManager {
             subtaskMap.remove(subtaskId);
         }
         epicTaskMap.remove(id);
+        historyManager.remove(id);
     }
 
     @Override
-    public void deleteSubtaskById(int id) {
+    public void deleteSubtaskById(int id)    {
         subtaskMap.remove(id);
+        historyManager.remove(id);
     }
 
     //методы на создание задачи\эпика\подзадачи (переделаны с учётом обновлённой структуры - теперь все методы)
