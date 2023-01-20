@@ -60,6 +60,7 @@ public class Main {
         taskManager.getSubtaskById(5);
         System.out.println(taskManager.getHistory());
 
+
         taskManager.deleteTaskById(task1Id);
         taskManager.deleteTaskById(task2Id);
         System.out.println(taskManager.getHistory());
