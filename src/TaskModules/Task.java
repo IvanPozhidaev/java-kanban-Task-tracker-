@@ -1,14 +1,18 @@
 package TaskModules;
 
+import StatusModules.Status;
+import StatusModules.TaskType;
+
 import java.util.Objects;
 
 public class Task {
     protected String taskName; // имя задачи
     protected String taskDescription; //описание задачи
     protected int id; //идентификационный номер задачи
-    protected String taskStatus; //статус задачи
+    protected Status taskStatus; //статус задачи
+    protected TaskType type;
 
-    public Task(String taskName, String taskDescription, int id, String taskStatus) {
+    public Task(String taskName, String taskDescription, int id, Status taskStatus) {
         this.taskName = taskName;
         this.taskDescription = taskDescription;
         this.id = id;
@@ -64,11 +68,15 @@ public class Task {
         this.id = id;
     }
 
-    public String getTaskStatus() {
+    public Status getTaskStatus() {
         return taskStatus;
     }
 
-    public void setTaskStatus(String taskStatus) {
-        this.taskStatus = taskStatus;
+    public void setTaskStatus(Status status) {
+        this.taskStatus = status;
+    }
+
+    public TaskType getType() {
+        return type;
     }
 }

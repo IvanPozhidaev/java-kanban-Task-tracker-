@@ -1,8 +1,6 @@
 package ManagerModules;
 
-import TaskModules.EpicTask;
-import TaskModules.Subtask;
-import TaskModules.Task;
+import TaskModules.*;
 
 import java.util.ArrayList;
 import java.util.List;
