@@ -10,11 +10,6 @@ import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 
-/*Привет, Степан! Мне наконец-то удалось написать что-то работающее по этому ТЗ.
-* Метод loadFromFile по ТЗ надо было сделать статиком, но у меня получилось только void - надеюсь не критично
-* Также сделал часть методов вспомогательных, для удобства
-* Метод join в toString пришлось гуглить, потому что изначально у меня было 3 метода для каждого типа задачи
-* Немного оптимизировал код в других классах (убрал лишние false, добавил\убрал проверки*/
 public class FileBackedTasksManager extends InMemoryTaskManager {
     Path path = Path.of("src/data_file.csv");
     File file = new File(String.valueOf(path));
@@ -65,11 +60,16 @@ public class FileBackedTasksManager extends InMemoryTaskManager {
         return TaskType.TASK;
     }
 
-    //метод сохранения задачи в строку
+    //обновлённый метод сохранения задачи в строку
     private String toString(Task task) {
-        String[] toJoin = {Integer.toString(task.getId()), getType(task).toString(), task.getTaskName(),
-                task.getTaskStatus().toString(), task.getTaskDescription(), getEpicId(task)};
-        return String.join(",", toJoin);
+        StringBuilder sb = new StringBuilder();
+        sb.append(task.getId()).append(",");
+        sb.append(getType(task).toString()).append(",");
+        sb.append(task.getTaskName()).append(",");
+        sb.append(task.getTaskStatus().toString()).append(",");
+        sb.append(task.getTaskDescription()).append(",");
+        sb.append(getEpicId(task)).append(",");
+        return sb.toString();
     }
 
     //сохранение менеджера истории
@@ -147,7 +147,7 @@ public class FileBackedTasksManager extends InMemoryTaskManager {
                 addToHistory(id);
             }
         } catch (IOException e) {
-            throw new ManagerSaveException("Возникла ошибка во время чтения файла.");
+            throw new ManagerSaveException("Возникла ошибка во время чтения файла \"java-kanban/src/data_file.csv\"");
         }
     }
 
