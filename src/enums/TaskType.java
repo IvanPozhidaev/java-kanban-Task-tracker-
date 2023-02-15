@@ -1,4 +1,4 @@
-package StatusModules;
+package enums;
 
 public enum TaskType {
     TASK,

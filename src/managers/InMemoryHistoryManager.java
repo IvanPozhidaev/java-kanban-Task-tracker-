@@ -1,6 +1,6 @@
-package ManagerModules;
+package managers;
 
-import TaskModules.Task;
+import tasks.Task;
 
 import java.util.*;
 

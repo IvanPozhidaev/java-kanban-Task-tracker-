@@ -1,6 +1,6 @@
-package ManagerModules;
+package managers;
 
-import TaskModules.Task;
+import tasks.Task;
 
 public class Node { //Класс "узла" делаю по примеру из кода теории
     private Task task; //поля приватные для большей безопасности, ниже для каждого есть геттеры и сеттеры

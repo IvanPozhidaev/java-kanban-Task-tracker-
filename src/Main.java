@@ -1,38 +1,34 @@
-import ManagerModules.FileBackedTasksManager;
-import ManagerModules.Managers;
-import ManagerModules.TaskManager;
-import StatusModules.Status;
-import TaskModules.EpicTask;
-import TaskModules.Subtask;
-import TaskModules.Task;
-
-import java.io.File;
-import java.nio.file.Path;
+import managers.FileBackedTasksManager;
+import managers.Managers;
+import enums.Status;
+import tasks.EpicTask;
+import tasks.Subtask;
+import tasks.Task;
 
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println("Поехали!");
-
-        FileBackedTasksManager manager = Managers.getDefaultFileManager();
-
-        Task task1 = new Task("New task1", "Description of task1", 0,
-                Status.NEW);
-        manager.createTask(task1);
-        Task task2 = new Task("New task2", "Description of task2", 0,
-                Status.NEW);
-        manager.createTask(task2);
-
-
-        EpicTask epicTask1 = new EpicTask("New Epic1", "New epic1 description", 0,
-                Status.NEW);
-        manager.createEpicTask(epicTask1);
-        Subtask subtask1 = new Subtask("New subtask1", "Description of subtask1", 0,
-                Status.NEW, epicTask1.getId());
-        manager.createSubTask(subtask1);
-
-        FileBackedTasksManager manager2 = Managers.getDefaultFileManager();
-        manager2.loadFromFile();
+//        System.out.println("Поехали!");
+//
+//        FileBackedTasksManager manager = Managers.getDefaultFileManager();
+//
+//        Task task1 = new Task("New task1", "Description of task1", 0,
+//                Status.NEW);
+//        manager.createTask(task1);
+//        Task task2 = new Task("New task2", "Description of task2", 0,
+//                Status.NEW);
+//        manager.createTask(task2);
+//
+//
+//        EpicTask epicTask1 = new EpicTask("New Epic1", "New epic1 description", 0,
+//                Status.NEW);
+//        manager.createEpicTask(epicTask1);
+//        Subtask subtask1 = new Subtask("New subtask1", "Description of subtask1", 0,
+//                Status.NEW, epicTask1.getId());
+//        manager.createSubTask(subtask1);
+//
+//        FileBackedTasksManager manager2 = Managers.getDefaultFileManager();
+//        manager2.loadFromFile();
 
 
 //        TaskManager taskManager = Managers.getDefault(Managers.getDefaultHistory());
