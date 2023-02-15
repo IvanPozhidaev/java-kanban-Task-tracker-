@@ -15,10 +15,6 @@ public class EpicTask extends Task {
         this.endTime = super.getEndTime();
     }
 
-    public void addSubtask(int subtaskId) {
-        this.subTasksIds.add(subtaskId);
-    }
-
     public List<Integer> getSubTasksIds() {
         return subTasksIds;
     }

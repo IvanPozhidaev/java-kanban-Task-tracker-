@@ -16,7 +16,6 @@ public class InMemoryTaskManager implements TaskManager {
     private final Comparator<Task> taskComparator = Comparator.comparing(Task::getStartTime);
     protected Set<Task> prioritizedTasks = new TreeSet<>(taskComparator);
 
-    public InMemoryTaskManager(){}
     //keygen
     public int idUniqueGenerator() {
         return ++id;
