@@ -2,11 +2,13 @@ package tests;
 
 import enums.Status;
 import managers.TaskManager;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import tasks.EpicTask;
 import tasks.Subtask;
 import tasks.Task;
 
+import java.io.IOException;
 import java.time.Instant;
 import java.util.Collections;
 import java.util.List;
@@ -16,6 +18,13 @@ import static org.junit.jupiter.api.Assertions.*;
 abstract class TaskManagerTest <T extends TaskManager> {
 
     protected T manager;
+    public abstract T createManager() throws IOException, InterruptedException;
+
+    @BeforeEach
+    void getManager() throws IOException, InterruptedException {
+        manager = createManager();
+    }
+
     protected Task addTask() {
         return new Task ("Название","Описание", Status.NEW, Instant.now(), 0);
     }

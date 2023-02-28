@@ -1,6 +1,5 @@
 package tests;
 
-import enums.Status;
 import managers.FileBackedTasksManager;
 import managers.InMemoryTaskManager;
 import managers.Managers;
@@ -14,7 +13,6 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.time.Instant;
 import java.util.Collections;
 import java.util.List;
 
@@ -23,6 +21,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class FileBackedTasksManagerTest extends TaskManagerTest<InMemoryTaskManager> {
     public static final Path path = Path.of("test_file.csv");
     File file = new File(String.valueOf(path));
+
+    @Override
+    public InMemoryTaskManager createManager() {
+        manager = new FileBackedTasksManager(Managers.getDefaultHistory(), file);
+        return manager;
+    }
+
     @BeforeEach
     public void beforeEach() {
         manager = new FileBackedTasksManager(Managers.getDefaultHistory(), file);

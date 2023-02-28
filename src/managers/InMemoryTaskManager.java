@@ -9,9 +9,9 @@ public class InMemoryTaskManager implements TaskManager {
 
     int id = 1;
     // делаю приватными и финальными, чтобы повысить безопасность и менять только состояние
-    private final HashMap<Integer, Task> taskMap = new HashMap<>();
-    private final HashMap<Integer, EpicTask> epicTaskMap = new HashMap<>();
-    private final HashMap<Integer, Subtask> subtaskMap = new HashMap<>();
+    protected final HashMap<Integer, Task> taskMap = new HashMap<>();
+    protected final HashMap<Integer, EpicTask> epicTaskMap = new HashMap<>();
+    protected final HashMap<Integer, Subtask> subtaskMap = new HashMap<>();
     private HistoryManager historyManager;
     private final Comparator<Task> taskComparator = Comparator.comparing(Task::getStartTime);
     protected Set<Task> prioritizedTasks = new TreeSet<>(taskComparator);

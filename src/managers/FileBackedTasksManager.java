@@ -12,7 +12,11 @@ import java.time.Instant;
 public class FileBackedTasksManager extends InMemoryTaskManager {
 
     Path path = Path.of("src/tasks_file.csv");
-    File file;
+    File file = new File(String.valueOf(path));
+
+    public FileBackedTasksManager(HistoryManager historyManager) {
+        super(historyManager);
+    }
 
     public FileBackedTasksManager(HistoryManager historyManager, File file) {
         super(historyManager);
